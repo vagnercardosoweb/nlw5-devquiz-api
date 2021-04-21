@@ -24,6 +24,7 @@
     "no-useless-constructor": "off",
     "no-prototype-builtins": "off",
     "no-param-reassign": "off",
+    "import/no-cycle": "off",
     "no-unused-vars": [
       "error",
       {

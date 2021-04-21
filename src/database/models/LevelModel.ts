@@ -1,5 +1,7 @@
 import { Optional } from 'sequelize';
-import { Column, CreatedAt, DataType, DeletedAt, Index, Model, Table, UpdatedAt } from 'sequelize-typescript';
+import { Column, CreatedAt, DataType, DeletedAt, HasMany, Index, Model, Table, UpdatedAt } from 'sequelize-typescript';
+
+import { QuestionModel } from '@database/models/QuestionModel';
 
 export interface ILevelAttributes {
   readonly id: string;
@@ -28,7 +30,7 @@ export class LevelModel extends Model<ILevelAttributes, ILevelCreationAttributes
 
   @Index
   @Column
-  public order: number | null;
+  public order: number;
 
   @Index
   @CreatedAt
@@ -41,4 +43,7 @@ export class LevelModel extends Model<ILevelAttributes, ILevelCreationAttributes
   @Index
   @DeletedAt
   public deleted_at: Date | null;
+
+  @HasMany(() => QuestionModel)
+  public questions?: QuestionModel[];
 }

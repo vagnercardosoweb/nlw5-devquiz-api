@@ -49,7 +49,7 @@ export class QuestionModel extends Model<IQuestionAttributes, IQuestionCreationA
   public name: string;
 
   @Column
-  public icon_name: string | null;
+  public icon_name: string;
 
   @Index
   @CreatedAt
