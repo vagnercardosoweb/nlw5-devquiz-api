@@ -15,7 +15,6 @@ import morgan from 'morgan';
 import configApp from '@src/config/app';
 import configSentry from '@src/config/sentry';
 import sequelize from '@src/database';
-import { normalizeValue } from '@src/helpers';
 import appRoutes from '@src/routes';
 
 import apiTokenMiddleware from '@middlewares/ApiTokenMiddleware';
@@ -70,11 +69,7 @@ class App {
     this.app.use(morgan('combined'));
     this.app.use(corsMiddleware);
     this.app.use(methodOverrideMiddleware);
-
-    if (normalizeValue<boolean>(process.env.PROTECT_ALL_ROUTES_WITH_TOKEN)) {
-      this.app.use(apiTokenMiddleware);
-    }
-
+    this.app.use(apiTokenMiddleware);
     this.app.use(appRoutes);
     this.app.use(notFoundMiddleware);
 

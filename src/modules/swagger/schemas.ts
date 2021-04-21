@@ -1,10 +1,10 @@
 import swaggerSchemasUser from '@src/modules/swagger/schemas/user';
 
-import swaggerSchemasCommonError from './schemas/common/error';
+import swaggerSchemasError from './schemas/error';
 
 const swaggerSchemas = {
   common: {
-    error: swaggerSchemasCommonError,
+    error: swaggerSchemasError,
   },
 
   user: swaggerSchemasUser,

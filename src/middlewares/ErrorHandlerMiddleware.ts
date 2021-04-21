@@ -11,7 +11,7 @@ interface IError extends Error {
 const errorHandlerMiddleware = (error: IError, _request: Request, response: Response, _next: NextFunction) => {
   const isJoi = isCelebrateError(error);
 
-  let statusCode = isJoi ? 400 : 500;
+  let statusCode = 400;
   const validations: any[] = [];
 
   if (error?.statusCode) {

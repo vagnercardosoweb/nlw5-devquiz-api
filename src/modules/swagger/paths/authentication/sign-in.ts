@@ -14,7 +14,7 @@ const swaggerPathsAuthenticationSignIn = {
             required: ['*'],
             properties: {
               email: { type: 'string', format: 'email' },
-              password: { type: 'string', format: 'password' },
+              password: { type: 'string', example: '******' },
             },
           },
         },
