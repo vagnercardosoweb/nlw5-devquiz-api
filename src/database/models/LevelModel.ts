@@ -1,0 +1,39 @@
+import { Optional } from 'sequelize';
+import { Column, CreatedAt, DataType, Index, Model, Table, UpdatedAt } from 'sequelize-typescript';
+
+export interface ILevelAttributes {
+  readonly id: string;
+  name: string;
+  order: number | null;
+  readonly created_at: Date;
+  readonly updated_at: Date;
+}
+
+export type ILevelCreationAttributes = Optional<ILevelAttributes, 'id' | 'created_at' | 'updated_at'>;
+
+@Table({ tableName: 'levels' })
+export class LevelModel extends Model<ILevelAttributes, ILevelCreationAttributes> {
+  @Index
+  @Column({
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+    unique: true,
+  })
+  public id: string;
+
+  @Index
+  @Column
+  public name: string;
+
+  @Index
+  @Column
+  public order: number | null;
+
+  @Index
+  @CreatedAt
+  public created_at: Date;
+
+  @Index
+  @UpdatedAt
+  public updated_at: Date;
+}

@@ -15,18 +15,18 @@ import Jwt from '@src/helpers/Jwt';
 import Password from '@src/helpers/Password';
 
 export interface IUserAttributes {
-  id: string;
+  readonly id: string;
   name: string;
   email: string;
   password?: string;
+  readonly created_at: Date;
+  readonly update_at: Date;
+  readonly deleted_at: Date;
 }
 
-export type IUserCreationAttributes = Optional<IUserAttributes, 'id'>;
+export type IUserCreationAttributes = Optional<IUserAttributes, 'id' | 'created_at' | 'update_at' | 'deleted_at'>;
 
-@Table({
-  tableName: 'users',
-  paranoid: true,
-})
+@Table({ tableName: 'users', paranoid: true })
 export class UserModel extends Model<IUserAttributes, IUserCreationAttributes> {
   @Index
   @Column({

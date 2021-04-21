@@ -33,6 +33,7 @@ class CreateTableUsers {
     });
 
     await queryInterface.addIndex('levels', ['id']);
+    await queryInterface.addIndex('levels', ['order']);
     await queryInterface.addIndex('levels', ['created_at']);
     await queryInterface.addIndex('levels', ['updated_at']);
   }
