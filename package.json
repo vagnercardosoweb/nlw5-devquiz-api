@@ -20,7 +20,7 @@
     "predb:migrate": "babel ./src/database/migrations/source --extensions \".js,.ts\" --out-dir ./src/database/migrations/compiled",
     "db:migrate": "sequelize db:migrate",
     "predb:seed": "babel ./src/database/seeders/source --extensions \".js,.ts\" --out-dir ./src/database/seeders/compiled",
-    "db:seed": "sequelize db:seed:all",
+    "db:seed": "sequelize db:seed:undo:all && sequelize db:seed:all",
     "prepare": "husky install"
   },
   "lint-staged": {

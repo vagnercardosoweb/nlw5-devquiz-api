@@ -23,7 +23,10 @@ export interface IUserAttributes {
 
 export type IUserCreationAttributes = Optional<IUserAttributes, 'id'>;
 
-@Table({ tableName: 'users' })
+@Table({
+  tableName: 'users',
+  paranoid: true,
+})
 export class UserModel extends Model<IUserAttributes, IUserCreationAttributes> {
   @Index
   @Column({

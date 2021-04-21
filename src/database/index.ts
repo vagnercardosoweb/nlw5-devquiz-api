@@ -18,7 +18,7 @@ const sequelize = new Sequelize({
   minifyAliases: true,
   define: {
     ...sequelizeOptions.define,
-    paranoid: true,
+    paranoid: false,
     underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
