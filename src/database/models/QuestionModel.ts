@@ -6,12 +6,14 @@ import {
   DataType,
   DeletedAt,
   ForeignKey,
+  HasMany,
   Index,
   Model,
   Table,
   UpdatedAt,
 } from 'sequelize-typescript';
 
+import { AnswerModel } from '@database/models/AnswerModel';
 import { LevelModel } from '@database/models/LevelModel';
 
 export interface IQuestionAttributes {
@@ -65,4 +67,7 @@ export class QuestionModel extends Model<IQuestionAttributes, IQuestionCreationA
 
   @BelongsTo(() => LevelModel)
   public level?: LevelModel;
+
+  @HasMany(() => AnswerModel)
+  public answers?: AnswerModel[];
 }
