@@ -1,7 +1,7 @@
 const swaggerPathsUsersMe = {
   get: {
     tags: ['users'],
-    summary: 'Recupera as informações do usuário',
+    summary: 'Recupera as informações do usuário.',
     description: 'API protegida por token do login (JWT)',
 
     responses: {

@@ -5,7 +5,11 @@ const swaggerTags = [
   },
   {
     name: 'users',
-    description: 'APIs relacionadas ao usuário.',
+    description: 'APIs relacionadas ao usuário (Protegia por JWT retornado no login).',
+  },
+  {
+    name: 'levels',
+    description: 'APIs aos levels. (Protegida pelo token padrão)',
   },
 ];
 

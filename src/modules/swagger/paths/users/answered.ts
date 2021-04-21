@@ -1,7 +1,7 @@
 const swaggerPathsUsersAnswered = {
   get: {
     tags: ['users'],
-    summary: 'Recupera as perguntas respodidas',
+    summary: 'Recupera as perguntas respodidas e porcentagem de acertos.',
     description: 'API protegida por token do login (JWT)',
 
     responses: {
