@@ -18,7 +18,7 @@ class Jwt {
     });
   }
 
-  public decode<T extends string>(token: string, secretKey?: jwt.Secret, options?: jwt.VerifyOptions): Promise<T> {
+  public decode<T extends any>(token: string, secretKey?: jwt.Secret, options?: jwt.VerifyOptions): Promise<T> {
     return new Promise((resolve, reject) => {
       try {
         resolve(jwt.verify(token, Jwt.getSecretKey(secretKey), options) as T);
