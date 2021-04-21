@@ -1,0 +1,53 @@
+version: '3'
+
+networks:
+  nlw5-devquiz-networks:
+    driver: bridge
+
+services:
+  api:
+    build: .
+    container_name: nlw5-devquiz-api
+    command: npm run dev
+    tty: true
+    depends_on:
+      - postgres
+    networks:
+      - nlw5-devquiz-networks
+    volumes:
+      - .:/home/api
+      - /home/api/node_modules
+    ports:
+      - 3333:3333
+
+  nginx:
+    build: .docker/nginx
+    container_name: nlw5-devquiz-nginx
+    restart: always
+    tty: true
+    depends_on:
+      - api
+      - postgres
+    ports:
+      - "80:80"
+      - "433:433"
+    volumes:
+      - .:/home/api
+    networks:
+      - nlw5-devquiz-networks
+
+  postgres:
+    image: postgres
+    tty: true
+    restart: always
+    container_name: nlw5-devquiz-postgres
+    networks:
+      - nlw5-devquiz-networks
+    ports:
+      - '5432:5432'
+    volumes:
+      - '.docker/postgresql:/var/lib/postgresql/data'
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=development

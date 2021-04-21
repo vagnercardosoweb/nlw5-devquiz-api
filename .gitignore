@@ -1,0 +1,12 @@
+.env*
+!.env.example
+.idea
+node_modules
+dist
+**/.DS_Store
+
+.docker/postgresql/*
+!.docker/postgresql/.gitkeep
+
+.docker/nginx/logs/*
+!.docker/nginx/logs/.gitkeep
