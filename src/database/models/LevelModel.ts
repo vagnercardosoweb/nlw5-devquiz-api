@@ -1,5 +1,5 @@
 import { Optional } from 'sequelize';
-import { Column, CreatedAt, DataType, Index, Model, Table, UpdatedAt } from 'sequelize-typescript';
+import { Column, CreatedAt, DataType, DeletedAt, Index, Model, Table, UpdatedAt } from 'sequelize-typescript';
 
 export interface ILevelAttributes {
   readonly id: string;
@@ -7,9 +7,10 @@ export interface ILevelAttributes {
   order: number | null;
   readonly created_at: Date;
   readonly updated_at: Date;
+  readonly deleted_at: Date;
 }
 
-export type ILevelCreationAttributes = Optional<ILevelAttributes, 'id' | 'created_at' | 'updated_at'>;
+export type ILevelCreationAttributes = Optional<ILevelAttributes, 'id' | 'created_at' | 'updated_at' | 'deleted_at'>;
 
 @Table({ tableName: 'levels' })
 export class LevelModel extends Model<ILevelAttributes, ILevelCreationAttributes> {
@@ -36,4 +37,8 @@ export class LevelModel extends Model<ILevelAttributes, ILevelCreationAttributes
   @Index
   @UpdatedAt
   public updated_at: Date;
+
+  @Index
+  @DeletedAt
+  public deleted_at: Date | null;
 }

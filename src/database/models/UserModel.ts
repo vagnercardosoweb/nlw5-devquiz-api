@@ -26,7 +26,7 @@ export interface IUserAttributes {
 
 export type IUserCreationAttributes = Optional<IUserAttributes, 'id' | 'created_at' | 'update_at' | 'deleted_at'>;
 
-@Table({ tableName: 'users', paranoid: true })
+@Table({ tableName: 'users' })
 export class UserModel extends Model<IUserAttributes, IUserCreationAttributes> {
   @Index
   @Column({

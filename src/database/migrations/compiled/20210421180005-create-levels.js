@@ -35,12 +35,18 @@ class CreateTableUsers {
         type: _sequelize.DataTypes.DATE,
         defaultValue: (0, _sequelize.literal)('CURRENT_TIMESTAMP'),
         allowNull: false
+      },
+      deleted_at: {
+        type: _sequelize.DataTypes.DATE,
+        defaultValue: null,
+        allowNull: true
       }
     });
     await queryInterface.addIndex('levels', ['id']);
     await queryInterface.addIndex('levels', ['order']);
     await queryInterface.addIndex('levels', ['created_at']);
     await queryInterface.addIndex('levels', ['updated_at']);
+    await queryInterface.addIndex('levels', ['deleted_at']);
   }
 
   async down(queryInterface) {

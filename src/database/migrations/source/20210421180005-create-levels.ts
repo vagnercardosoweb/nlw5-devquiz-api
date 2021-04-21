@@ -30,12 +30,18 @@ class CreateTableUsers {
         defaultValue: literal('CURRENT_TIMESTAMP'),
         allowNull: false,
       },
+      deleted_at: {
+        type: DataTypes.DATE,
+        defaultValue: null,
+        allowNull: true,
+      },
     });
 
     await queryInterface.addIndex('levels', ['id']);
     await queryInterface.addIndex('levels', ['order']);
     await queryInterface.addIndex('levels', ['created_at']);
     await queryInterface.addIndex('levels', ['updated_at']);
+    await queryInterface.addIndex('levels', ['deleted_at']);
   }
 
   async down(queryInterface: QueryInterface) {
