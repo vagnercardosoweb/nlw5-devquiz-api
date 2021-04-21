@@ -37,6 +37,11 @@ class CreateTableUsers {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
+      points: {
+        type: _sequelize.DataTypes.SMALLINT,
+        allowNull: false,
+        defaultValue: 0
+      },
       correct: {
         type: _sequelize.DataTypes.BOOLEAN,
         allowNull: false,

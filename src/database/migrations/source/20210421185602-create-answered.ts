@@ -31,6 +31,11 @@ class CreateTableUsers {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
+      points: {
+        type: DataTypes.SMALLINT,
+        allowNull: false,
+        defaultValue: 0,
+      },
       correct: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

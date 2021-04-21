@@ -5,6 +5,7 @@ import {
   CreatedAt,
   DataType,
   DeletedAt,
+  HasMany,
   Index,
   Model,
   Table,
@@ -13,6 +14,8 @@ import {
 
 import Jwt from '@src/helpers/Jwt';
 import Password from '@src/helpers/Password';
+
+import { AnsweredModel } from '@database/models/AnsweredModel';
 
 export interface IUserAttributes {
   readonly id: string;
@@ -73,4 +76,7 @@ export class UserModel extends Model<IUserAttributes, IUserCreationAttributes> {
   async generateJwtToken(): Promise<string> {
     return Jwt.encode({ sub: this.id });
   }
+
+  @HasMany(() => AnsweredModel)
+  public answered?: AnsweredModel[];
 }
