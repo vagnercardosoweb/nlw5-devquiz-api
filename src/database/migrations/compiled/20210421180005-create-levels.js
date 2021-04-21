@@ -12,7 +12,7 @@ class CreateTableUsers {
     await queryInterface.sequelize.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
     await queryInterface.createTable('levels', {
       id: {
-        type: _sequelize.DataTypes.STRING(36),
+        type: _sequelize.DataTypes.UUID,
         primaryKey: true,
         unique: true,
         defaultValue: (0, _sequelize.literal)('uuid_generate_v4()')

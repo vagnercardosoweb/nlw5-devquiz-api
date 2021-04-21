@@ -6,7 +6,7 @@ class CreateTableUsers {
 
     await queryInterface.createTable('levels', {
       id: {
-        type: DataTypes.STRING(36),
+        type: DataTypes.UUID,
         primaryKey: true,
         unique: true,
         defaultValue: literal('uuid_generate_v4()'),

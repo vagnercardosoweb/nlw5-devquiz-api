@@ -4,25 +4,31 @@ class CreateTableUsers {
   async up(queryInterface: QueryInterface) {
     await queryInterface.sequelize.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
 
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('questions', {
       id: {
         type: DataTypes.UUID,
         primaryKey: true,
         unique: true,
         defaultValue: literal('uuid_generate_v4()'),
       },
+      level_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          key: 'id',
+          model: 'levels',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
+      },
       name: {
         type: DataTypes.STRING(100),
         allowNull: false,
       },
-      email: {
-        type: DataTypes.STRING(120),
-        unique: true,
-        allowNull: false,
-      },
-      password: {
+      icon_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: null,
       },
       created_at: {
         type: DataTypes.DATE,
@@ -36,20 +42,21 @@ class CreateTableUsers {
       },
       deleted_at: {
         type: DataTypes.DATE,
-        allowNull: true,
         defaultValue: null,
+        allowNull: true,
       },
     });
 
-    await queryInterface.addIndex('users', ['id'], { unique: true });
-    await queryInterface.addIndex('users', ['email'], { unique: true });
-    await queryInterface.addIndex('users', ['created_at']);
-    await queryInterface.addIndex('users', ['updated_at']);
-    await queryInterface.addIndex('users', ['deleted_at']);
+    await queryInterface.addIndex('questions', ['id']);
+    await queryInterface.addIndex('questions', ['name']);
+    await queryInterface.addIndex('questions', ['level_id']);
+    await queryInterface.addIndex('questions', ['created_at']);
+    await queryInterface.addIndex('questions', ['updated_at']);
+    await queryInterface.addIndex('questions', ['deleted_at']);
   }
 
   async down(queryInterface: QueryInterface) {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('questions');
   }
 }
 
