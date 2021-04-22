@@ -1,6 +1,7 @@
 import swaggerSchemasUser from '@src/modules/swagger/schemas/user';
 
 import swaggerSchemasLevel from '@modules/swagger/schemas/level';
+import swaggerSchemasQuestion from '@modules/swagger/schemas/question';
 
 import swaggerSchemasError from './schemas/error';
 
@@ -11,6 +12,7 @@ const swaggerSchemas = {
 
   user: swaggerSchemasUser,
   level: swaggerSchemasLevel,
+  question: swaggerSchemasQuestion,
 };
 
 export default swaggerSchemas;
