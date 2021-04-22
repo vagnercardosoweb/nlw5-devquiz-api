@@ -1,14 +1,13 @@
-const swaggerPathsAnswerIsCorrect = {
-  post: {
-    tags: ['answers'],
-    summary: 'Verifica se a resposta está correta',
-    description: 'API protegida por token do login (JWT)',
+const swaggerPathsQuestionListAnswer = {
+  get: {
+    tags: ['questions'],
+    summary: 'Recupera as resposta por pergunta',
 
     parameters: [
       {
         name: 'id',
         in: 'path',
-        description: 'ID da resposta',
+        description: 'ID da pergunta',
         required: true,
         schema: {
           type: 'uuid',
@@ -22,13 +21,9 @@ const swaggerPathsAnswerIsCorrect = {
         content: {
           'application/json': {
             schema: {
-              type: 'object',
-              properties: {
-                correct: {
-                  type: 'boolean',
-                  example: 'true|false',
-                  format: 'uuid',
-                },
+              type: 'array',
+              items: {
+                $ref: '#/schemas/answer',
               },
             },
           },
@@ -42,4 +37,4 @@ const swaggerPathsAnswerIsCorrect = {
   },
 };
 
-export default swaggerPathsAnswerIsCorrect;
+export default swaggerPathsQuestionListAnswer;

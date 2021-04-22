@@ -1,4 +1,4 @@
-const swaggerPathsQuestionFind = {
+const swaggerPathsQuestionList = {
   tags: ['questions'],
   summary: 'Recupera todos',
 
@@ -60,4 +60,4 @@ const swaggerPathsQuestionFind = {
   },
 };
 
-export default swaggerPathsQuestionFind;
+export default swaggerPathsQuestionList;
