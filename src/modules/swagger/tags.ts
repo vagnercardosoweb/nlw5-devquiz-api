@@ -13,7 +13,7 @@ const swaggerTags = [
   },
   {
     name: 'questions',
-    description: 'APIs de questões. (Protegida pelo token padrão)',
+    description: 'APIs de perguntas. (Protegida pelo token padrão)',
   },
 
   {
