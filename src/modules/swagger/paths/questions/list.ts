@@ -11,7 +11,7 @@ const swaggerPathsQuestionList = {
             type: 'array',
             items: {
               allOf: [
-                { $ref: '#/schemas/question' },
+                { $ref: '#/schemas/questions/find' },
                 {
                   type: 'object',
                   properties: {

@@ -1,6 +1,15 @@
-const swaggerPathsQuestionCreate = {
+const swaggerPathsQuestionUpdate = {
   tags: ['questions'],
-  summary: 'Cria nova pergunta',
+  summary: 'Atualiza pergunta por id',
+
+  parameters: [
+    {
+      name: 'id',
+      in: 'path',
+      description: 'ID da pergunta',
+      required: true,
+    },
+  ],
 
   requestBody: {
     require: true,
@@ -15,7 +24,7 @@ const swaggerPathsQuestionCreate = {
   },
 
   responses: {
-    201: {
+    200: {
       description: 'OK',
       content: {
         'application/json': {
@@ -41,4 +50,4 @@ const swaggerPathsQuestionCreate = {
   },
 };
 
-export default swaggerPathsQuestionCreate;
+export default swaggerPathsQuestionUpdate;
