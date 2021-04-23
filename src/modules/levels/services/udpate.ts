@@ -1,6 +1,7 @@
 import { Op } from 'sequelize';
 
 import {
+  ILevelAttributes,
   ILevelCreationAttributes,
   LevelModel,
 } from '@database/models/LevelModel';
@@ -11,26 +12,31 @@ import NotFoundError from '@errors/NotFoundError';
 type IRequest = { id: string } & ILevelCreationAttributes;
 
 class Update {
-  public async run({ id, name, order }: IRequest): Promise<LevelModel> {
+  public async run({ id, ...request }: IRequest): Promise<LevelModel> {
     const rowLevel = await LevelModel.findByPk(id);
 
     if (!rowLevel) {
       throw new NotFoundError('Level not found');
     }
 
-    const existName = await LevelModel.findOne({
-      where: {
-        id: { [Op.ne]: rowLevel.id },
-        name: { [Op.iLike]: name },
-      },
-    });
+    if (request.name) {
+      const existName = await LevelModel.findOne({
+        where: {
+          id: { [Op.ne]: rowLevel.id },
+          name: { [Op.iLike]: request.name },
+        },
+      });
 
-    if (existName) {
-      throw new AppError('Name already exists registered.');
+      if (existName) {
+        throw new AppError('Name already exists registered.');
+      }
     }
 
-    rowLevel.name = name;
-    rowLevel.order = order ?? rowLevel.order;
+    Object.entries(request).forEach(([column, value]) => {
+      if (value) {
+        rowLevel.setDataValue(column as keyof ILevelAttributes, value);
+      }
+    });
 
     await rowLevel.save();
 
