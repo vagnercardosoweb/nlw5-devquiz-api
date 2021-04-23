@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 
-const corsMiddleware = (request: Request, response: Response, next: NextFunction) => {
+const corsMiddleware = (
+  request: Request,
+  response: Response,
+  next: NextFunction,
+) => {
   const allowOrigin = '*';
   const allowMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'];
   const allowHeaders = request.headers['access-control-request-headers'];

@@ -1,11 +1,17 @@
 import { Op } from 'sequelize';
 
-import { ILevelCreationAttributes, LevelModel } from '@database/models/LevelModel';
+import {
+  ILevelCreationAttributes,
+  LevelModel,
+} from '@database/models/LevelModel';
 
 import AppError from '@errors/AppError';
 
 class Create {
-  public async run({ name, order }: ILevelCreationAttributes): Promise<LevelModel> {
+  public async run({
+    name,
+    order,
+  }: ILevelCreationAttributes): Promise<LevelModel> {
     const existName = await LevelModel.findOne({
       where: {
         name: {

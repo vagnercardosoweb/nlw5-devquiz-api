@@ -32,7 +32,10 @@ export type IQuestionCreationAttributes = Optional<
 >;
 
 @Table({ tableName: 'questions' })
-export class QuestionModel extends Model<IQuestionAttributes, IQuestionCreationAttributes> {
+export class QuestionModel extends Model<
+  IQuestionAttributes,
+  IQuestionCreationAttributes
+> {
   @Index
   @Column({
     primaryKey: true,

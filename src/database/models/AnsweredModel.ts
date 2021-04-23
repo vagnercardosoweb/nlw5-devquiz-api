@@ -1,5 +1,14 @@
 import { Optional } from 'sequelize';
-import { BelongsTo, Column, CreatedAt, DataType, ForeignKey, Index, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  CreatedAt,
+  DataType,
+  ForeignKey,
+  Index,
+  Model,
+  Table,
+} from 'sequelize-typescript';
 
 import { AnswerModel } from '@database/models/AnswerModel';
 import { UserModel } from '@database/models/UserModel';
@@ -16,7 +25,10 @@ export interface IAnsweredAttributes {
 export type IAnsweredCreationAttributes = Optional<IAnsweredAttributes, 'id'>;
 
 @Table({ tableName: 'answered', paranoid: false, timestamps: false })
-export class AnsweredModel extends Model<IAnsweredAttributes, IAnsweredCreationAttributes> {
+export class AnsweredModel extends Model<
+  IAnsweredAttributes,
+  IAnsweredCreationAttributes
+> {
   @Index
   @Column({
     primaryKey: true,

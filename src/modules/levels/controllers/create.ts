@@ -13,8 +13,8 @@ class Create {
   public validate() {
     return celebrate({
       [Segments.BODY]: {
-        name: Joi.string().required(),
-        order: Joi.number().default(null),
+        name: Joi.string().required().label('Name'),
+        order: Joi.number().default(null).label('Order'),
       },
     });
   }

@@ -2,7 +2,11 @@ import { NextFunction, Request, Response } from 'express';
 
 import configCors from '@src/config/cors';
 
-const methodOverrideMiddleware = (request: Request, _: Response, next: NextFunction) => {
+const methodOverrideMiddleware = (
+  request: Request,
+  _: Response,
+  next: NextFunction,
+) => {
   let newMethod;
 
   const allowedMethods = configCors.methods;

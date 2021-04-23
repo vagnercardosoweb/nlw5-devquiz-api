@@ -42,8 +42,15 @@ export const extractTokenInRequest = (request: Request): string => {
   return token;
 };
 
-const apiTokenMiddleware = async (request: Request, _response: Response, next: NextFunction) => {
-  if (!('dev' in request.query) && !checkIfTheRouteIsAllowedInTheRequest(request)) {
+const apiTokenMiddleware = async (
+  request: Request,
+  _response: Response,
+  next: NextFunction,
+) => {
+  if (
+    !('dev' in request.query) &&
+    !checkIfTheRouteIsAllowedInTheRequest(request)
+  ) {
     const token = extractTokenInRequest(request);
 
     if (token !== API_KEY) {

@@ -20,7 +20,9 @@ class SignIn {
     });
 
     if (rowExistUserByEmail) {
-      throw new AppError('This email already exists in our system. Please fill out another one.');
+      throw new AppError(
+        'This email already exists in our system. Please fill out another one.',
+      );
     }
 
     const newUser = await UserModel.create({

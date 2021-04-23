@@ -8,7 +8,12 @@ interface IError extends Error {
   statusCode?: number;
 }
 
-const errorHandlerMiddleware = (error: IError, _request: Request, response: Response, _next: NextFunction) => {
+const errorHandlerMiddleware = (
+  error: IError,
+  _request: Request,
+  response: Response,
+  _next: NextFunction,
+) => {
   const isJoi = isCelebrateError(error);
 
   let statusCode = 400;

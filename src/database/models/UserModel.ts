@@ -27,7 +27,10 @@ export interface IUserAttributes {
   readonly deleted_at: Date;
 }
 
-export type IUserCreationAttributes = Optional<IUserAttributes, 'id' | 'created_at' | 'update_at' | 'deleted_at'>;
+export type IUserCreationAttributes = Optional<
+  IUserAttributes,
+  'id' | 'created_at' | 'update_at' | 'deleted_at'
+>;
 
 @Table({ tableName: 'users' })
 export class UserModel extends Model<IUserAttributes, IUserCreationAttributes> {

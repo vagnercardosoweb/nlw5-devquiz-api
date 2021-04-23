@@ -6,6 +6,10 @@ import authUserMiddleware from '@middlewares/AuthUserMiddleware';
 
 const routes = Router({ mergeParams: true });
 
-routes.post('/:id/is-correct', authUserMiddleware, answerIsCorrectController.handle);
+routes.post(
+  '/:id/is-correct',
+  authUserMiddleware,
+  answerIsCorrectController.handle,
+);
 
 export default routes;

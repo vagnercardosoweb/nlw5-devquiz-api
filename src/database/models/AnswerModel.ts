@@ -25,10 +25,16 @@ export interface IAnswerAttributes {
   readonly deleted_at: Date;
 }
 
-export type IAnswerCreationAttributes = Optional<IAnswerAttributes, 'id' | 'created_at' | 'updated_at' | 'deleted_at'>;
+export type IAnswerCreationAttributes = Optional<
+  IAnswerAttributes,
+  'id' | 'created_at' | 'updated_at' | 'deleted_at'
+>;
 
 @Table({ tableName: 'answers' })
-export class AnswerModel extends Model<IAnswerAttributes, IAnswerCreationAttributes> {
+export class AnswerModel extends Model<
+  IAnswerAttributes,
+  IAnswerCreationAttributes
+> {
   @Index
   @Column({
     primaryKey: true,
