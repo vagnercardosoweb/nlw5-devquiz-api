@@ -1,6 +1,6 @@
-const swaggerPathsQuestionCreate = {
-  tags: ['questions'],
-  summary: 'Cria nova pergunta',
+const swaggerPathsAnswerCreate = {
+  tags: ['answers'],
+  summary: 'Cria nova resposta por pergunta',
 
   requestBody: {
     require: true,
@@ -12,8 +12,9 @@ const swaggerPathsQuestionCreate = {
           required: ['*'],
           properties: {
             name: { type: 'string' },
-            level_id: { type: 'string', format: 'uuid' },
-            icon_name: { type: 'string', required: false },
+            question_id: { type: 'string', format: 'uuid' },
+            correct: { type: 'boolean' },
+            points: { type: 'number' },
           },
         },
       },
@@ -27,12 +28,12 @@ const swaggerPathsQuestionCreate = {
         'application/json': {
           schema: {
             allOf: [
-              { $ref: '#/schemas/question' },
+              { $ref: '#/schemas/answer' },
               { $ref: '#/schemas/common/dates' },
               {
                 type: 'object',
                 properties: {
-                  level_id: { type: 'string', format: 'uuid' },
+                  correct: { type: 'boolean' },
                 },
               },
             ],
@@ -47,4 +48,4 @@ const swaggerPathsQuestionCreate = {
   },
 };
 
-export default swaggerPathsQuestionCreate;
+export default swaggerPathsAnswerCreate;

@@ -9,9 +9,6 @@ const swaggerPathsQuestionListAnswer = {
         in: 'path',
         description: 'ID da pergunta',
         required: true,
-        schema: {
-          type: 'uuid',
-        },
       },
     ],
 
