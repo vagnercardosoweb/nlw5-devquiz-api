@@ -10,7 +10,7 @@ const swaggerPathsLevelFind = {
           schema: {
             type: 'array',
             items: {
-              $ref: '#/schemas/level',
+              $ref: '#/schemas/levels/find',
             },
           },
         },

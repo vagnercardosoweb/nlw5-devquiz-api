@@ -1,6 +1,15 @@
-const swaggerPathsLevelCreate = {
+const swaggerPathsLevelUpdate = {
   tags: ['levels'],
-  summary: 'Cria novo level',
+  summary: 'Atualiza level por id',
+
+  parameters: [
+    {
+      name: 'id',
+      in: 'path',
+      description: 'ID do level',
+      required: true,
+    },
+  ],
 
   requestBody: {
     require: true,
@@ -15,7 +24,7 @@ const swaggerPathsLevelCreate = {
   },
 
   responses: {
-    201: {
+    200: {
       description: 'OK',
       content: {
         'application/json': {
@@ -41,4 +50,4 @@ const swaggerPathsLevelCreate = {
   },
 };
 
-export default swaggerPathsLevelCreate;
+export default swaggerPathsLevelUpdate;

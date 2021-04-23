@@ -6,7 +6,7 @@ import swaggerPathsAnswerIsCorrect from '@modules/swagger/paths/answers/is-corre
 import swaggerPathsAnswerSelect from '@modules/swagger/paths/answers/select';
 import swaggerPathsAuthenticationSignIn from '@modules/swagger/paths/authentication/sign-in';
 import swaggerPathsLevels from '@modules/swagger/paths/levels';
-import swaggerPathsLevelDelete from '@modules/swagger/paths/levels/delete';
+import swaggerPathsLevelsById from '@modules/swagger/paths/levels/byid';
 import swaggerPathsQuestions from '@modules/swagger/paths/questions';
 import swaggerPathsQuestionDelete from '@modules/swagger/paths/questions/delete';
 import swaggerPathsQuestionListAnswer from '@modules/swagger/paths/questions/list-answers';
@@ -21,7 +21,7 @@ const swaggerPaths = {
   '/users/answered': swaggerPathsUsersAnswered,
 
   '/levels': swaggerPathsLevels,
-  '/levels/{id}': swaggerPathsLevelDelete,
+  '/levels/{id}': swaggerPathsLevelsById,
 
   '/questions': swaggerPathsQuestions,
   '/questions/{id}': swaggerPathsQuestionDelete,
