@@ -26,7 +26,7 @@ class Create {
 
     return LevelModel.create({
       name,
-      order,
+      order: order === 0 ? null : order,
     });
   }
 }
