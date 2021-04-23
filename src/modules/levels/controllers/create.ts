@@ -14,7 +14,7 @@ class Create {
     return celebrate({
       [Segments.BODY]: {
         name: Joi.string().required(),
-        order: Joi.number().default(null).required(),
+        order: Joi.number().default(null),
       },
     });
   }
