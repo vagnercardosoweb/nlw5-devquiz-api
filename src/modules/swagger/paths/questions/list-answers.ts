@@ -20,7 +20,7 @@ const swaggerPathsQuestionListAnswer = {
             schema: {
               type: 'array',
               items: {
-                $ref: '#/schemas/answer',
+                $ref: '#/schemas/answers/find',
               },
             },
           },

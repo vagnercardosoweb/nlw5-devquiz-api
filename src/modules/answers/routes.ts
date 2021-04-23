@@ -4,6 +4,7 @@ import answerCreateController from '@modules/answers/controllers/create';
 import answerDeleteController from '@modules/answers/controllers/delete';
 import answerIsCorrectController from '@modules/answers/controllers/is-correct';
 import answerSelectController from '@modules/answers/controllers/select';
+import answerUpdateController from '@modules/answers/controllers/update';
 
 import authUserMiddleware from '@middlewares/AuthUserMiddleware';
 
@@ -15,7 +16,10 @@ routes.post(
   answerCreateController.handle,
 );
 
-routes.delete('/:id', answerDeleteController.handle);
+routes
+  .route('/:id')
+  .put(answerUpdateController.validate(), answerUpdateController.handle)
+  .delete(answerDeleteController.handle);
 
 routes.post(
   '/:id/is-correct',

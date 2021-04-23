@@ -1,6 +1,15 @@
-const swaggerPathsAnswerCreate = {
+const swaggerPathsAnswerUpdate = {
   tags: ['answers'],
-  summary: 'Cria nova resposta por pergunta',
+  summary: 'Atualiza resposta por id',
+
+  parameters: [
+    {
+      name: 'id',
+      in: 'path',
+      description: 'ID da resposta',
+      required: true,
+    },
+  ],
 
   requestBody: {
     require: true,
@@ -15,7 +24,7 @@ const swaggerPathsAnswerCreate = {
   },
 
   responses: {
-    201: {
+    200: {
       description: 'OK',
       content: {
         'application/json': {
@@ -41,4 +50,4 @@ const swaggerPathsAnswerCreate = {
   },
 };
 
-export default swaggerPathsAnswerCreate;
+export default swaggerPathsAnswerUpdate;

@@ -1,7 +1,7 @@
 import swaggerPathsAuthenticationSignUp from '@src/modules/swagger/paths/authentication/sign-up';
 
 import swaggerPathsAnswers from '@modules/swagger/paths/answers';
-import swaggerPathsAnswerDelete from '@modules/swagger/paths/answers/delete';
+import swaggerPathsAnswersById from '@modules/swagger/paths/answers/byid';
 import swaggerPathsAnswerIsCorrect from '@modules/swagger/paths/answers/is-correct';
 import swaggerPathsAnswerSelect from '@modules/swagger/paths/answers/select';
 import swaggerPathsAuthenticationSignIn from '@modules/swagger/paths/authentication/sign-in';
@@ -28,7 +28,7 @@ const swaggerPaths = {
   '/questions/{id}/answers': swaggerPathsQuestionListAnswer,
 
   '/answers': swaggerPathsAnswers,
-  '/answers/{id}': swaggerPathsAnswerDelete,
+  '/answers/{id}': swaggerPathsAnswersById,
   '/answers/{id}/is-correct': swaggerPathsAnswerIsCorrect,
   '/answers/{id}/select': swaggerPathsAnswerSelect,
 };
