@@ -2,6 +2,7 @@ import swaggerPathsAuthenticationSignUp from '@src/modules/swagger/paths/authent
 
 import swaggerPathsAnswers from '@modules/swagger/paths/answers';
 import swaggerPathsAnswerIsCorrect from '@modules/swagger/paths/answers/is-correct';
+import swaggerPathsAnswerSelect from '@modules/swagger/paths/answers/select';
 import swaggerPathsAuthenticationSignIn from '@modules/swagger/paths/authentication/sign-in';
 import swaggerPathsLevels from '@modules/swagger/paths/levels';
 import swaggerPathsLevelDelete from '@modules/swagger/paths/levels/delete';
@@ -25,6 +26,7 @@ const swaggerPaths = {
 
   '/answers': swaggerPathsAnswers,
   '/answers/{id}/is-correct': swaggerPathsAnswerIsCorrect,
+  '/answers/{id}/select': swaggerPathsAnswerSelect,
 };
 
 export default swaggerPaths;

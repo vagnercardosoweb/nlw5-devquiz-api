@@ -10,9 +10,6 @@ const swaggerPathsAnswerIsCorrect = {
         in: 'path',
         description: 'ID da resposta',
         required: true,
-        schema: {
-          type: 'uuid',
-        },
       },
     ],
 
