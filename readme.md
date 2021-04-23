@@ -59,6 +59,10 @@ docker exec nlw5-devquiz-api sh -c "yarn db:migrate"
 
 A documentação pode ser acessada atrávez [http://localhost:3333/docs](http://localhost:3333/docs)
 
+<p align="center">
+  <img alt="Swagger" src=".github/swagger.png" width="100%" />
+</p>
+
 ## Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
