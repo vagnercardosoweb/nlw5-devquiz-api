@@ -37,6 +37,7 @@ Agora você deve configurar as variável de ambiente.
 - Configure as variávies, caso esteja utilizando docker o banco já está configurado para rodar local.
 - Cria duas chaves seguras e mude em `APP_KEY` e `API_KEY`.
 - Caso queira o rastreamento do [sentry](https://sentry.io/welcome/), você deve configurar o `SENTRY_DSN`.
+- A env `APP_ENV` deve ser development para funcionar as `migrations` em ambiente de desenvolvimento.
 
 **APP_KEY**: chave para proteger a criptografia do token JWT.
 
@@ -54,6 +55,10 @@ npm run dev:docker
 # Rodando as migrations
 docker exec nlw5-devquiz-api sh -c "yarn db:migrate"
 ```
+
+- Todas rotas é protegida por TOKEN, quando não precisa está autenticado deve passar a chave que está no `.env` chamada `API_KEY`.
+- Na documentação em todas rotas tem um **CADEADO** ao clicar vc insere o token e terá acesso as rotas.
+- As rotas que precisa de autenticação você deve passar o **token** retornado no login.
 
 # Documentação da API
 
