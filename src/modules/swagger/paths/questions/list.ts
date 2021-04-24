@@ -15,6 +15,7 @@ const swaggerPathsQuestionList = {
                 {
                   type: 'object',
                   properties: {
+                    answered: { type: 'number' },
                     level: {
                       type: 'object',
                       properties: {
